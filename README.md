@@ -1,5 +1,13 @@
 # Parity sandbox
 
+This simple script takes a password and a message as inputs then makes multiple calls to a Parity node to do the following:
+1. Generate a new mnemonic phrase
+2. Use the mnemonic phrase and password string to create a new account
+3. Add that account to the Parity node
+4. Encrypt the message string
+5. Unlock the account on the Parity node
+6. Decrypt the message string
+
 #### Install Parity locally and start it with this command 
 `parity --light --jsonrpc-cors all --jsonrpc-apis=eth,personal,parity,parity_accounts`
 
