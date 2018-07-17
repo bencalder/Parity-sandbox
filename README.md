@@ -1,6 +1,8 @@
 # Parity sandbox
 
-This simple script takes a password and a message as inputs then makes multiple calls to a Parity node to do the following:
+### Encrypting and decrypting messages with Parity
+
+This script takes two string inputs (a password and a message) then makes calls to a Parity node to do the following:
 1. Generate a new mnemonic phrase
 2. Use the mnemonic phrase and password string to create a new account
 3. Add that account to the Parity node
@@ -13,11 +15,11 @@ This simple script takes a password and a message as inputs then makes multiple 
 
 
 #### Use the following command to initiate the sequence of calls to Parity and view their results
-`node index.js generateSecretPhrase '<password>' '<message to encrypt>'`
+`node index.js launch '<password>' '<message to encrypt>'`
 
 
 #### Ex:
-`node index.js generateSecretPhrase 'hunter2' 'Bens secret message'`
+`node index.js launch 'hunter2' 'Bens secret message'`
 
 #### Result:
 `Generated new mnemonic: sternum dumping avenue math repacking halt scion jujitsu shopper habitual washtub recital`

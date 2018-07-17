@@ -3,10 +3,13 @@
 var ethKey = require('@parity/ethKey.js');
 var request = require('request');
 
+var pw;
+var msg;
 var publicKey;
 var address;
+var em;
 
-var post = function(params, method, callback) {
+function post(params, method, callback) {
 	request({
     	method: 'POST',
     	json: true,
@@ -26,7 +29,7 @@ var post = function(params, method, callback) {
   	})
 }
 
-var generateSecretPhrase = function(pw, msg) {
+function generateSecretPhrase() {
 
 	post([], 'parity_generateSecretPhrase', function(body) {
 		var phrase = body[0]['result'];
@@ -45,33 +48,33 @@ var generateSecretPhrase = function(pw, msg) {
 	});
 }
 
-var newAccountFromPhrase = function(phrase, pw, msg) {
+function newAccountFromPhrase(phrase) {
 
 	post([phrase, pw], 'parity_newAccountFromPhrase', function(body) {
 		console.log('Added new account: ' + body[0]['result']);
-    	encrypt(pw, msg);
+    	encrypt();
 	});
 }
 
-var encrypt = function(pw, msg) {
+function encrypt() {
 	console.log('Encrypting message: ' + msg);
 
 	post([publicKey, '0x' + a2hex(msg)], 'parity_encryptMessage', function(body) {
-		var em = body[0]['result'];
+		em = body[0]['result'];
     	console.log('Encrypted message: ' + em);
-    	unlockAccount(pw, em)
+    	unlockAccount()
 	});
 }
 
-var unlockAccount = function(pw, em) {
+function unlockAccount() {
 
 	post([address, pw, null], 'personal_unlockAccount', function(body) {
 		console.log('Unlocked account? ' + body[0]['result']);
-    	decrypt(em);
+    	decrypt();
 	});
 }
 
-var decrypt = function(em) {
+function decrypt() {
 
 	post([address, em], 'parity_decryptMessage', function(body) {
 		var decryptedMsg = body[0]['result'];
@@ -96,8 +99,16 @@ function hex2a(hexx) {
     return str;
 }
 
+function launch(password, message) {
+
+	pw = password;
+	msg = message;
+
+	generateSecretPhrase();
+}
+
 module.exports = {
-	generateSecretPhrase: generateSecretPhrase
+	launch: launch
 }
 
 require('make-runnable');
