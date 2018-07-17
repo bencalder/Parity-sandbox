@@ -10,7 +10,11 @@ This script takes two string inputs (a password and a message) then makes calls 
 5. Unlock the account on the Parity node
 6. Decrypt the message string
 
-#### Install Parity locally and start it with this command 
+### Get Started
+
+`npm install`
+
+#### Install [Parity](https://www.parity.io) locally and start it with this command 
 `parity --light --jsonrpc-cors all --jsonrpc-apis=eth,personal,parity,parity_accounts`
 
 
