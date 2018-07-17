@@ -14,7 +14,7 @@ This script takes two string inputs (a password and a message) then makes calls 
 
 `npm install`
 
-#### Install [Parity](https://www.parity.io) locally and start it with this command 
+#### Install [Parity](https://github.com/paritytech/parity) locally and start it with this command 
 `parity --light --jsonrpc-cors all --jsonrpc-apis=eth,personal,parity,parity_accounts`
 
 
