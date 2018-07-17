@@ -24,11 +24,14 @@ This script takes two string inputs (a password and a message) then makes calls 
 #### Result:
 `Generated new mnemonic: sternum dumping avenue math repacking halt scion jujitsu shopper habitual washtub recital`
 
-`Generated new wallet: {
+```Generated new wallet: {
+	
 	"secret":"0xb243fae0e84fdd0054fedd9ad3ea29bfb07904f3e2ded5d8578d0dd2bab4cbd5",
+	
 	"public":"0x947a8c1f2cd96dbb1ceb00502ce68c3f9121f34e4db4dadb8b489e7e7d3f21bc04e4e4139a9a5daa2f3bd686f040c0c047442dfa55005f74e25bd73d8b59b768",
+	
 	"address":"0x00d167c1231638103fc89fbb3c8f7b88c7a9d995"
-}`
+}```
 
 `Added new account: 0x00d167c1231638103fc89fbb3c8f7b88c7a9d995`
 
