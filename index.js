@@ -30,7 +30,7 @@ var generateSecretPhrase = function(pw, msg) {
 
 	post([], 'parity_generateSecretPhrase', function(body) {
 		var phrase = body[0]['result'];
-    	console.log('Genererated new mnemonic: ' + phrase);
+    	console.log('Generated new mnemonic: ' + phrase);
 
     	var wallet = ethKey.phraseToWallet(phrase);
 
